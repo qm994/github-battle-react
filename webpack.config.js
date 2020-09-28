@@ -1,5 +1,5 @@
 const path = require('path');
-
+const HtmlWebapckPlugin = require('html-webpack-plugin');
 module.exports = {
     // the entry file to kick off everything and we are going to bundle all the modules here
     entry: './app/index.js',
@@ -17,5 +17,13 @@ module.exports = {
             { test: /\.(css)$/, use: ['style-loader', 'css-loader'] },
         ]
     },
-    mode: 'development'
+    mode: 'development',
+    plugins: [
+        // this will create a copy of index,html file in apps folder in dist,
+        // but the copy one will automatically have the script reference to 
+        // bundled file when run npm build
+        new HtmlWebapckPlugin({
+            template: 'app/index.html'
+        })
+    ]
 };

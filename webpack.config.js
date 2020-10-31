@@ -13,8 +13,8 @@ module.exports = {
         rules: [
             // while we use webpack, anytime we see the files end in js, we use 
             // babel-loader to do the transformation
-            { test: /\.(js)$/, use: 'babel-loader' },
-            { test: /\.(css)$/, use: ['style-loader', 'css-loader'] },
+            {test: /\.(js)$/, use: ['babel-loader', 'babel-preset-es2015', 'babel-preset-react']},
+            {test: /\.(css)$/, use: ['style-loader', 'css-loader']}
         ]
     },
     mode: 'development',

@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { Component } from 'react';
 
+export default class Popular extends Component {
 
-export default class Popular extends React.Component {
+    state = { selectedLanguage: 'All' }
+
     render() {
-        const languages = ['All', 'Javascript', 'Ruby', 'Java', 'CSS', 'Python']
+        const languages = ['All', 'Javascript', 'Ruby', 'Java', 'CSS', 'Python', 'R']
         return (
             <ul className='flex-center'>
                 {languages.map((language) => (
                     <li key={language}>
                         <button className='btn-clear nav-link'>
-                            {language}
+                            {language }
                         </button>
                     </li>
                 ))}

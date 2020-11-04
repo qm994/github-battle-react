@@ -2,7 +2,13 @@ import React, { Component } from 'react';
 
 export default class Popular extends Component {
 
-    state = { selectedLanguage: 'All' }
+    state = { selectedLanguage: 'All' };
+    updateLanguage(selectedLanguage, e) {
+        e.preventDefault();
+        this.setState({
+            selectedLanguage: selectedLanguage
+        })
+    };
 
     render() {
         const languages = ['All', 'Javascript', 'Ruby', 'Java', 'CSS', 'Python', 'R']
@@ -10,8 +16,10 @@ export default class Popular extends Component {
             <ul className='flex-center'>
                 {languages.map((language) => (
                     <li key={language}>
-                        <button className='btn-clear nav-link'>
-                            {language }
+                        <button 
+                            className='btn-clear nav-link'
+                            onClick={(e) => this.updateLanguage(language, e)}>
+                            {this.state.selectedLanguage}
                         </button>
                     </li>
                 ))}
